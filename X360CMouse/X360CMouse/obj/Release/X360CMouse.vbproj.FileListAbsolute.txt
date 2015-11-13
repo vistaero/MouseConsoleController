@@ -1,0 +1,15 @@
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\X360CMouse.exe.config
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\X360CMouse.exe
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\X360CMouse.pdb
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\X360CMouse.xml
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\BrandonPotter.XBox.dll
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\SharpDX.dll
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\SharpDX.XInput.dll
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\SharpDX.xml
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Release\SharpDX.XInput.xml
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.Form1.resources
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.Resources.resources
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.vbproj.GenerateResource.Cache
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.exe
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.xml
+C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Release\X360CMouse.pdb
