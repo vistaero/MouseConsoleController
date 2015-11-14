@@ -14,7 +14,3 @@ c:\users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\D
 c:\users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Debug\X360CMouse.exe
 c:\users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Debug\X360CMouse.xml
 c:\users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Debug\X360CMouse.pdb
-C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Debug\X360CMouse.exe.manifest
-C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\bin\Debug\X360CMouse.application
-C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Debug\X360CMouse.exe.manifest
-C:\Users\vista\documents\visual studio 2015\Projects\X360CMouse\X360CMouse\obj\Debug\X360CMouse.application

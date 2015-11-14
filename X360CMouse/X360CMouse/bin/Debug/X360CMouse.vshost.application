@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="X360CMouse.exe.manifest" size="6017">
+    <dependentAssembly dependencyType="install" codebase="X360CMouse.exe.manifest" size="7152">
       <assemblyIdentity name="X360CMouse.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>g2IQu6XNvOnLI/0gQ21+kQx0dY8mQ6Gl9HcsXZk73sw=</dsig:DigestValue>
+        <dsig:DigestValue>nMqSIRP/gYMg2caFEDAeq89iDfXs9Tex6VVp0XyBvVk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

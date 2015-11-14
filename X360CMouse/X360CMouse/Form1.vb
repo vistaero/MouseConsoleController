@@ -4,7 +4,6 @@ Imports System.Threading
 Public Class Form1
 
     ' Joystick Izquierdo
-
     Dim PorcentajeX As Double
     Dim PorcentajeY As Double
 
@@ -93,6 +92,7 @@ Public Class Form1
                 VelocidadX = 0
             Case < 50
                 VelocidadX = -(50 - PorcentajeX) / Dividendo
+
             Case > 50
                 VelocidadX = (PorcentajeX - 50) / Dividendo
 
@@ -108,6 +108,8 @@ Public Class Form1
                 VelocidadY = -(PorcentajeY - 50) / Dividendo
 
         End Select
+
+
 
         Call apimouse_event(MOUSEEVENTF_MOVE, VelocidadX, VelocidadY, 0, 0)
 
@@ -150,7 +152,7 @@ Public Class Form1
         End Select
 
         Call apimouse_event(MOUSEEVENTF_WHEEL, 0, 0, ScrollYVelocidad, 0)
-        Call apimouse_event(MOUSEEVENTF_WHEEL, 0, 0, ScrollXVelocidad, 0)
+        Call apimouse_event(MOUSEEVENTF_HWHEEL, 0, 0, ScrollXVelocidad, 0)
 
 
     End Sub

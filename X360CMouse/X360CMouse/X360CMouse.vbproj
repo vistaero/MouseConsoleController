@@ -69,16 +69,22 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>CD15D57C053029654ADECB727156484BB86AE3C0</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>0C5AF92FF7FBCCC7ED9394E5C60228915DE9C1D2</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>X360CMouse_ClaveTemporal.pfx</ManifestKeyFile>
+    <ManifestKeyFile>X360CMouse_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BrandonPotter.XBox, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
@@ -151,6 +157,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -163,6 +172,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="X360CMouse_ClaveTemporal.pfx" />
+    <None Include="X360CMouse_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
