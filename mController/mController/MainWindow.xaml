@@ -1,0 +1,35 @@
+﻿<Window x:Name="MainWindow1" x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mController"
+        mc:Ignorable="d"
+        Title="mController" Height="426.565" Width="924.748" WindowStartupLocation="CenterScreen" Icon="icon.ico" ResizeMode="NoResize" Topmost="True">
+    <DockPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Margin="0, 0, 0, 20" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button x:Name="button_close" Content="Dejar de utilizar el mando y cerrar" HorizontalAlignment="Left" Margin="0,0,0,0" Padding="10"   Height="61" Foreground="Red" FontSize="16"/>
+
+            <Button x:Name="button_disable" Content="Ocultar y deshabilitar temporalmente" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"   Height="61" Foreground="#FFFF9700" FontSize="16"/>
+
+            <Button x:Name="button_hide" Content="Ocultar y continuar utilizando el mando" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="61" Foreground="#FF008524" FontSize="16"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock x:Name="textBlock" Margin="15" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="16"><Run FontWeight="Bold" Text="Controles"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="textBlock1"  TextWrapping="Wrap" TextAlignment="Center" FontSize="16"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Clic "/><Run Text="p"/><Run Text="rimario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Clic secundario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick izquierdo"/><LineBreak/><Run Text="Mover cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Apretar joystick izquierdo"/><LineBreak/><Run Text="Clic central"/><LineBreak/><Run Text=""/><LineBreak/></TextBlock>
+            <TextBlock x:Name="textBlock2" Margin="20, 0, 0, 0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="16"><Run FontWeight="Bold" Text="Mover joystick derecho vertical u horizontalmente"/><LineBreak/><Run Text="Desplazamiento (Scroll) vertical u horizontal"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo/derecho"/><LineBreak/><Run Text="Reducir/aumentar velocidad del cursor o del desplazamiento"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo + gatillo derecho + botón de inicio (start)"/><LineBreak/><Run Text=" Mostrar/ocultar esta interfaz"/></TextBlock>
+
+            </StackPanel>
+            
+        </StackPanel>
+
+        
+
+
+
+    </DockPanel>
+</Window>
