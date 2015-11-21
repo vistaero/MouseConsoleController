@@ -4,6 +4,21 @@
     xmlns:local="clr-namespace:mController"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
+
+
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="RoundedButton.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+
+
     </Application.Resources>
+    
+    
+    
 </Application>

@@ -1,5 +1,5 @@
-﻿Imports System.Runtime.InteropServices
-Imports System.Windows.Interop
+﻿'Imports System.Runtime.InteropServices
+'Imports System.Windows.Interop
 
 Class MainWindow
 
@@ -14,7 +14,7 @@ Class MainWindow
     Dim Dividendo As Byte
     Dim VelocidadNormal As Byte = 10
     Dim VelocidadLenta As Byte = 25
-    Dim VelocidadRapida As Byte = 5
+    Dim VelocidadRapida As Byte = 3
 
     ' Controles Mouse
 
@@ -44,23 +44,50 @@ Class MainWindow
     Dim MidClick As New System.Windows.Forms.Timer
     Dim InterfaceToggle As New System.Windows.Forms.Timer
 
-    ' Ocultar Botón Cerrar
-    Private Const GWL_STYLE As Integer = -16
-    Private Const WS_SYSMENU As Integer = &H80000
-    <DllImport("user32.dll", SetLastError:=True)>
-    Private Shared Function GetWindowLong(hWnd As IntPtr, nIndex As Integer) As Integer
-    End Function
-    <DllImport("user32.dll")>
-    Private Shared Function SetWindowLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
-    End Function
+    'Eliminar botonera de la barra de título
+    'Private Const GWL_STYLE As Integer = -16
+    'Private Const WS_SYSMENU As Integer = &H80000
+    '<DllImport("user32.dll", SetLastError:=True)>
+    'Private Shared Function GetWindowLong(hWnd As IntPtr, nIndex As Integer) As Integer
+    'End Function
+    '<DllImport("user32.dll")>
+    'Private Shared Function SetWindowLong(hWnd As IntPtr, nIndex As Integer, dwNewLong As Integer) As Integer
+    'End Function
+
 
     Private Sub MainWindow1_Loaded(sender As Object, e As EventArgs) Handles MainWindow1.Loaded
+        'Eliminar botonera de la barra de título
+        'Dim hwnd = New WindowInteropHelper(Me).Handle
+        'SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) And Not WS_SYSMENU)
 
+        Select Case BrandonPotter.XBox.XBoxController.GetConnectedControllers.Count
+            Case 1
+                controller1rb.IsEnabled = True
+                controller2rb.IsEnabled = False
+                controller3rb.IsEnabled = False
+                controller4rb.IsEnabled = False
 
-        Dim hwnd = New WindowInteropHelper(Me).Handle
-        SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) And Not WS_SYSMENU)
+            Case 2
+                controller1rb.IsEnabled = True
+                controller2rb.IsEnabled = True
+                controller3rb.IsEnabled = False
+                controller4rb.IsEnabled = False
 
-        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers().FirstOrDefault()
+            Case 3
+                controller1rb.IsEnabled = True
+                controller2rb.IsEnabled = True
+                controller3rb.IsEnabled = True
+                controller4rb.IsEnabled = False
+
+            Case 4
+                controller1rb.IsEnabled = True
+                controller2rb.IsEnabled = True
+                controller3rb.IsEnabled = True
+                controller4rb.IsEnabled = True
+
+        End Select
+
+        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(0)
         myController.SnapDeadZoneTolerance = 15
 
         AddHandler ButtonsTimer.Tick, AddressOf ButtonsTimer_Tick
@@ -174,8 +201,12 @@ Class MainWindow
         End Select
 
 
+        Try
+            Call apimouse_event(MOUSEEVENTF_MOVE, VelocidadX, VelocidadY, 0, 0)
+        Catch ex As Exception
 
-        Call apimouse_event(MOUSEEVENTF_MOVE, VelocidadX, VelocidadY, 0, 0)
+        End Try
+
 
 
     End Sub
@@ -333,5 +364,25 @@ Class MainWindow
 
     Private Sub button_hide_Click(sender As Object, e As RoutedEventArgs) Handles button_hide.Click
         MainWindow1.Visibility = Visibility.Hidden
+    End Sub
+
+    Private Sub MainWindow1_MouseDown(sender As Object, e As MouseButtonEventArgs) Handles MainWindow1.MouseDown
+        Me.DragMove()
+    End Sub
+
+    Private Sub controller1rb_Checked(sender As Object, e As RoutedEventArgs) Handles controller1rb.Checked
+        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(0)
+    End Sub
+
+    Private Sub controller2rb_Checked(sender As Object, e As RoutedEventArgs) Handles controller2rb.Checked
+        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(1)
+    End Sub
+
+    Private Sub controller3rb_Checked(sender As Object, e As RoutedEventArgs) Handles controller3rb.Checked
+        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(2)
+    End Sub
+
+    Private Sub controller4rb_Checked(sender As Object, e As RoutedEventArgs) Handles controller4rb.Checked
+        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(3)
     End Sub
 End Class

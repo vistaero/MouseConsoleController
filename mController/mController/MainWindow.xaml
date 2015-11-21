@@ -5,31 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mController"
         mc:Ignorable="d"
-        Title="mController" Height="426.565" Width="924.748" WindowStartupLocation="CenterScreen" Icon="icon.ico" ResizeMode="NoResize" Topmost="True">
-    <DockPanel>
+        Title="mController" Height="675" Width="1170" WindowStartupLocation="CenterScreen" Icon="icon.ico" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
+    <Grid>
+        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#33ABF4FF" Offset="0"/>
+                    <GradientStop Color="#334490FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000" Margin="325,96,325,0">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#33ABF4FF" Offset="0"/>
+                    <GradientStop Color="#334490FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Margin="150,192,150,0" Fill="#F2000000">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#33ABF4FF" Offset="0"/>
+                    <GradientStop Color="#334490FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <DockPanel>
 
-        <StackPanel DockPanel.Dock="Bottom" Margin="0, 0, 0, 20" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button x:Name="button_close" Content="Dejar de utilizar el mando y cerrar" HorizontalAlignment="Left" Margin="0,0,0,0" Padding="10"   Height="61" Foreground="Red" FontSize="16"/>
+            <StackPanel DockPanel.Dock="Top" Margin="0, 10, 0, 0" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <Button x:Name="button_close" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="0,0,0,0" Padding="10" Height="45" FontSize="16" Background="Black" BorderBrush="#FFFF4A4A">
 
-            <Button x:Name="button_disable" Content="Ocultar y deshabilitar temporalmente" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"   Height="61" Foreground="#FFFF9700" FontSize="16"/>
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Dejar de utilizar el mando y cerrar</TextBlock>
+                        </StackPanel>
 
-            <Button x:Name="button_hide" Content="Ocultar y continuar utilizando el mando" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="61" Foreground="#FF008524" FontSize="16"/>
+                    </ContentControl>
 
-        </StackPanel>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" DockPanel.Dock="Top">
-            <TextBlock x:Name="textBlock" Margin="15" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="16"><Run FontWeight="Bold" Text="Controles"/></TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="textBlock1"  TextWrapping="Wrap" TextAlignment="Center" FontSize="16"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Clic "/><Run Text="p"/><Run Text="rimario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Clic secundario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick izquierdo"/><LineBreak/><Run Text="Mover cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Apretar joystick izquierdo"/><LineBreak/><Run Text="Clic central"/><LineBreak/><Run Text=""/><LineBreak/></TextBlock>
-            <TextBlock x:Name="textBlock2" Margin="20, 0, 0, 0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" FontSize="16"><Run FontWeight="Bold" Text="Mover joystick derecho vertical u horizontalmente"/><LineBreak/><Run Text="Desplazamiento (Scroll) vertical u horizontal"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo/derecho"/><LineBreak/><Run Text="Reducir/aumentar velocidad del cursor o del desplazamiento"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo + gatillo derecho + botón de inicio (start)"/><LineBreak/><Run Text=" Mostrar/ocultar esta interfaz"/></TextBlock>
+                </Button>
+
+
+
+                <Button x:Name="button_disable" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FFFFD100">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Ocultar y deshabilitar temporalmente</TextBlock>
+                        </StackPanel>
+
+                    </ContentControl>
+                </Button>
+
+                <Button x:Name="button_hide" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FF0051FF">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Ocultar y continuar utilizando el mando</TextBlock>
+                        </StackPanel>
+
+                    </ContentControl>
+
+                </Button>
 
             </StackPanel>
-            
-        </StackPanel>
 
-        
+            <StackPanel DockPanel.Dock="Top" Margin="0, 26, 0, 0" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                <RadioButton x:Name="controller1rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console" IsChecked="True">Mando 1</RadioButton>
+                <RadioButton x:Name="controller2rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 2</RadioButton>
+                <RadioButton x:Name="controller3rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 3</RadioButton>
+                <RadioButton x:Name="controller4rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 4</RadioButton>
+            </StackPanel>
 
 
 
-    </DockPanel>
+                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" TextAlignment="Center" FontSize="21" Foreground="Lime"  FontFamily="Lucida Console" Height="auto" Margin="0,43.5,0,0"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Clic "/><Run Text="p"/><Run Text="rimario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Clic secundario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick izquierdo"/><LineBreak/><Run Text="Mover cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Apretar joystick izquierdo"/><LineBreak/><Run Text="Clic centra"/><Run Text="l"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick derecho vertical u horizontalmente"/><LineBreak/><Run Text="Desplazamiento (Scroll) vertical u horizontal"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo/derecho"/><LineBreak/><Run Text="Reducir/aumentar velocidad del cursor o del desplazamiento"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo + gatillo derecho + botón de inicio (start)"/><LineBreak/><Run Text=" Mostrar/ocultar esta interfaz"/><LineBreak/><Run/></TextBlock>
+
+
+
+
+        </DockPanel>
+    </Grid>
 </Window>
