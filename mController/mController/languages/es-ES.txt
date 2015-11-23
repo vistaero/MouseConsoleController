@@ -1,0 +1,20 @@
+A 
+Clic primario
+
+B
+Clic secundario
+
+Mover joystick izquierdo
+Mover cursor
+
+Apretar joystick izquierdo
+Clic central
+
+Mover joystick derecho vertical u horizontalmente
+Desplazamiento (Scroll) vertical u horizontal
+
+Gatillo izquierdo/derecho
+Reducir/aumentar velocidad del cursor o del desplazamiento
+
+Gatillo izquierdo + gatillo derecho + botón de inicio (start)
+Mostrar/ocultar esta interfaz

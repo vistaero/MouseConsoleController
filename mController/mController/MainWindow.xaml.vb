@@ -1,6 +1,14 @@
 ﻿'Imports System.Runtime.InteropServices
 'Imports System.Windows.Interop
 
+
+Imports System.Configuration
+Imports System.Globalization
+Imports System.Web
+Imports System.Net
+Imports System.Xml
+Imports System.Text
+
 Class MainWindow
 
     ' Joystick Izquierdo
@@ -12,7 +20,7 @@ Class MainWindow
 
     ' Velocidad de desplazamiento
     Dim Dividendo As Byte
-    Dim VelocidadNormal As Byte = 10
+    Dim VelocidadNormal As Byte = 8
     Dim VelocidadLenta As Byte = 25
     Dim VelocidadRapida As Byte = 3
 
@@ -35,14 +43,18 @@ Class MainWindow
     Dim myController
 
     ' Timers
-    Dim ButtonsTimer As New System.Windows.Forms.Timer
-    Dim ThumbLeftTimer As New System.Windows.Forms.Timer
-    Dim ThumbRightTimer As New System.Windows.Forms.Timer
-    Dim InterfaceToggleTimer As New System.Windows.Forms.Timer
-    Dim LeftClick As New System.Windows.Forms.Timer
-    Dim RightClick As New System.Windows.Forms.Timer
-    Dim MidClick As New System.Windows.Forms.Timer
-    Dim InterfaceToggle As New System.Windows.Forms.Timer
+
+    Dim ThumbLeftTimer As New System.Windows.Threading.DispatcherTimer
+    Dim ButtonsTimer As New System.Windows.Threading.DispatcherTimer
+    Dim ThumbRightTimer As New System.Windows.Threading.DispatcherTimer
+    Dim InterfaceToggleTimer As New System.Windows.Threading.DispatcherTimer
+    Dim LeftClick As New System.Windows.Threading.DispatcherTimer
+    Dim RightClick As New System.Windows.Threading.DispatcherTimer
+    Dim MidClick As New System.Windows.Threading.DispatcherTimer
+    Dim InterfaceToggle As New System.Windows.Threading.DispatcherTimer
+
+    ' Idioma
+    Dim Idioma As String
 
     'Eliminar botonera de la barra de título
     'Private Const GWL_STYLE As Integer = -16
@@ -60,7 +72,14 @@ Class MainWindow
         'Dim hwnd = New WindowInteropHelper(Me).Handle
         'SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) And Not WS_SYSMENU)
 
+        cambiaIdioma(Idioma)
+
         Select Case BrandonPotter.XBox.XBoxController.GetConnectedControllers.Count
+            Case 0
+                controller1rb.IsEnabled = False
+                controller2rb.IsEnabled = False
+                controller3rb.IsEnabled = False
+                controller4rb.IsEnabled = False
             Case 1
                 controller1rb.IsEnabled = True
                 controller2rb.IsEnabled = False
@@ -87,49 +106,84 @@ Class MainWindow
 
         End Select
 
-        myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(0)
-        myController.SnapDeadZoneTolerance = 15
+        If BrandonPotter.XBox.XBoxController.GetConnectedControllers.Count > 0 Then
+            myController = BrandonPotter.XBox.XBoxController.GetConnectedControllers(0)
+            myController.SnapDeadZoneTolerance = 15
+            controller1rb.IsChecked = True
 
-        AddHandler ButtonsTimer.Tick, AddressOf ButtonsTimer_Tick
-        AddHandler ThumbLeftTimer.Tick, AddressOf ThumbLeftTimer_Tick
-        AddHandler ThumbRightTimer.Tick, AddressOf ThumbRightTimer_Tick
-        AddHandler LeftClick.Tick, AddressOf LeftClick_Tick
-        AddHandler RightClick.Tick, AddressOf RightClick_Tick
-        AddHandler MidClick.Tick, AddressOf MidClick_Tick
-        AddHandler InterfaceToggle.Tick, AddressOf InterfaceToggle_Tick
-        AddHandler InterfaceToggleTimer.Tick, AddressOf InterfaceToggleTimer_Tick
+            AddHandler ButtonsTimer.Tick, AddressOf ButtonsTimer_Tick
+            AddHandler ThumbLeftTimer.Tick, AddressOf ThumbLeftTimer_Tick
+            AddHandler ThumbRightTimer.Tick, AddressOf ThumbRightTimer_Tick
+            AddHandler LeftClick.Tick, AddressOf LeftClick_Tick
+            AddHandler RightClick.Tick, AddressOf RightClick_Tick
+            AddHandler MidClick.Tick, AddressOf MidClick_Tick
+            AddHandler InterfaceToggle.Tick, AddressOf InterfaceToggle_Tick
+            AddHandler InterfaceToggleTimer.Tick, AddressOf InterfaceToggleTimer_Tick
 
-        ButtonsTimer.Enabled = True
-        ButtonsTimer.Interval = 1
 
-        ThumbLeftTimer.Enabled = True
-        ThumbLeftTimer.Interval = 1
+            ButtonsTimer.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            ButtonsTimer.IsEnabled = True
 
-        ThumbRightTimer.Enabled = True
-        ThumbRightTimer.Interval = 1
+            ThumbLeftTimer.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            ThumbLeftTimer.IsEnabled = True
 
-        LeftClick.Enabled = False
-        LeftClick.Interval = 1
+            ThumbRightTimer.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            ThumbRightTimer.IsEnabled = True
 
-        RightClick.Enabled = False
-        RightClick.Interval = 1
+            LeftClick.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            LeftClick.IsEnabled = True
 
-        MidClick.Enabled = False
-        MidClick.Interval = 1
+            RightClick.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            RightClick.IsEnabled = True
 
-        InterfaceToggle.Enabled = False
-        InterfaceToggle.Interval = 1
+            MidClick.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            MidClick.IsEnabled = True
 
-        InterfaceToggleTimer.Enabled = True
-        InterfaceToggleTimer.Interval = 1
+            InterfaceToggle.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            InterfaceToggle.IsEnabled = True
+
+            InterfaceToggleTimer.Interval = New TimeSpan(0, 0, 0, 0, 1)
+            InterfaceToggleTimer.IsEnabled = True
+        End If
+
+
+
+    End Sub
+
+    Private Sub cambiaIdioma(idioma As String)
+        'System.Threading.Thread.CurrentThread.CurrentCulture = New System.Globalization.CultureInfo(idioma)
+        'System.Threading.Thread.CurrentThread.CurrentUICulture = New System.Globalization.CultureInfo(idioma)
+        idioma = System.Globalization.CultureInfo.CurrentCulture.Name
+
+        If idioma.StartsWith("es") Then
+            textClose.Text = "Dejar de utilizar el mando y cerrar"
+            textDisable.Text = "Deshabilitar temporalmente y ocultar"
+            textHide.Text = "Utilizar el mando y ocultar"
+            controller1rb.Content = "Mando 1"
+            controller2rb.Content = "Mando 2"
+            controller3rb.Content = "Mando 3"
+            controller4rb.Content = "Mando 4"
+
+            instrucciones.Text = System.IO.File.ReadAllText(My.Application.Info.DirectoryPath & "\languages\es-ES.txt", Encoding.Unicode)
+        Else
+            textClose.Text = "Stop using controller and close"
+            textDisable.Text = "Hide and disable temporarily"
+            textHide.Text = "Hide and keep using controller"
+            controller1rb.Content = "Controller 1"
+            controller2rb.Content = "Controller 2"
+            controller3rb.Content = "Controller 3"
+            controller4rb.Content = "Controller 4"
+
+            instrucciones.Text = System.IO.File.ReadAllText(My.Application.Info.DirectoryPath & "\languages\en-EN.txt", Encoding.Unicode)
+        End If
 
     End Sub
 
     Private Sub InterfaceToggleTimer_Tick(sender As Object, e As EventArgs)
         If myController.ButtonStartPressed = True And myController.TriggerLeftPressed = True And myController.TriggerRightPressed = True Then
             InterfaceTogglePressed = True
-            If InterfaceToggle.Enabled = False Then
-                InterfaceToggle.Enabled = True
+            If InterfaceToggle.IsEnabled = False Then
+                InterfaceToggle.IsEnabled = True
             End If
         Else
             InterfaceTogglePressed = False
@@ -149,8 +203,8 @@ Class MainWindow
 
         If myController.ButtonAPressed = True Then
             LeftPressed = True
-            If LeftClick.Enabled = False Then
-                LeftClick.Enabled = True
+            If LeftClick.IsEnabled = False Then
+                LeftClick.IsEnabled = True
             End If
         Else
             LeftPressed = False
@@ -158,8 +212,8 @@ Class MainWindow
 
         If myController.ButtonBPressed = True Then
             RightPressed = True
-            If RightClick.Enabled = False Then
-                RightClick.Enabled = True
+            If RightClick.IsEnabled = False Then
+                RightClick.IsEnabled = True
             End If
         Else
             RightPressed = False
@@ -167,8 +221,8 @@ Class MainWindow
 
         If myController.ThumbpadLeftPressed = True Then
             MidPressed = True
-            If MidClick.Enabled = False Then
-                MidClick.Enabled = True
+            If MidClick.IsEnabled = False Then
+                MidClick.IsEnabled = True
             End If
         Else
             MidPressed = False
@@ -267,7 +321,7 @@ Class MainWindow
             Call apimouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0)
             ClickReleased = True
             ClickPerformed = False
-            LeftClick.Enabled = False
+            LeftClick.IsEnabled = False
         End If
     End Sub
 
@@ -286,7 +340,7 @@ Class MainWindow
             Call apimouse_event(MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0)
             RightClickReleased = True
             RightClickPerformed = False
-            RightClick.Enabled = False
+            RightClick.IsEnabled = False
         End If
     End Sub
 
@@ -305,7 +359,7 @@ Class MainWindow
             Call apimouse_event(MOUSEEVENTF_MIDDLEUP, 0, 0, 0, 0)
             MidClickReleased = True
             MidClickPerformed = False
-            MidClick.Enabled = False
+            MidClick.IsEnabled = False
         End If
     End Sub
 
@@ -328,7 +382,7 @@ Class MainWindow
 
             InterfaceToggleReleased = True
             InterfaceTogglePerformed = False
-            InterfaceToggle.Enabled = False
+            InterfaceToggle.IsEnabled = False
         End If
     End Sub
 
@@ -337,17 +391,17 @@ Class MainWindow
             MainWindow1.Visibility = Visibility.Hidden
 
             If Disable = True Then
-                ThumbLeftTimer.Enabled = False
-                ThumbRightTimer.Enabled = False
-                ButtonsTimer.Enabled = False
+                ThumbLeftTimer.IsEnabled = False
+                ThumbRightTimer.IsEnabled = False
+                ButtonsTimer.IsEnabled = False
             End If
 
         Else
             MainWindow1.Visibility = Visibility.Visible
 
-            ThumbLeftTimer.Enabled = True
-            ThumbRightTimer.Enabled = True
-            ButtonsTimer.Enabled = True
+            ThumbLeftTimer.IsEnabled = True
+            ThumbRightTimer.IsEnabled = True
+            ButtonsTimer.IsEnabled = True
 
         End If
     End Sub

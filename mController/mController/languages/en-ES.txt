@@ -1,0 +1,20 @@
+A 
+Primary click
+
+B
+Secondary click
+
+Move Left Joystick
+Move cursor
+
+Push Left Joystick
+Mid Click
+
+Move Right Joystick Horizontally or Vertically
+Horizontal or Vertical Scroll
+
+Left/Right Trigger
+Decrease/Increase speed
+
+Trigger Left + Trigger Right + Start
+Hide/Show this interface

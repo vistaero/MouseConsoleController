@@ -15,7 +15,7 @@
                 </LinearGradientBrush>
             </Rectangle.Stroke>
         </Rectangle>
-        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000" Margin="325,96,325,0">
+        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000" Margin="210,96,210,0">
             <Rectangle.Stroke>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#33ABF4FF" Offset="0"/>
@@ -38,7 +38,7 @@
 
                     <ContentControl>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Dejar de utilizar el mando y cerrar</TextBlock>
+                            <TextBlock x:Name="textClose" FontFamily="Lucida Console" Foreground="Lime">Stop using controller and close</TextBlock>
                         </StackPanel>
 
                     </ContentControl>
@@ -51,7 +51,7 @@
                 <Button x:Name="button_disable" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FFFFD100">
                     <ContentControl>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Ocultar y deshabilitar temporalmente</TextBlock>
+                            <TextBlock x:Name="textDisable" FontFamily="Lucida Console" Foreground="Lime">Hide and disable temporarily</TextBlock>
                         </StackPanel>
 
                     </ContentControl>
@@ -60,7 +60,7 @@
                 <Button x:Name="button_hide" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FF0051FF">
                     <ContentControl>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock FontFamily="Lucida Console" Foreground="Lime">Ocultar y continuar utilizando el mando</TextBlock>
+                            <TextBlock x:Name="textHide" FontFamily="Lucida Console" Foreground="Lime">Hide and keep using controller</TextBlock>
                         </StackPanel>
 
                     </ContentControl>
@@ -70,15 +70,15 @@
             </StackPanel>
 
             <StackPanel DockPanel.Dock="Top" Margin="0, 26, 0, 0" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <RadioButton x:Name="controller1rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console" IsChecked="True">Mando 1</RadioButton>
-                <RadioButton x:Name="controller2rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 2</RadioButton>
-                <RadioButton x:Name="controller3rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 3</RadioButton>
-                <RadioButton x:Name="controller4rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Mando 4</RadioButton>
+                <RadioButton x:Name="controller1rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 1</RadioButton>
+                <RadioButton x:Name="controller2rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 2</RadioButton>
+                <RadioButton x:Name="controller3rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 3</RadioButton>
+                <RadioButton x:Name="controller4rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 4</RadioButton>
             </StackPanel>
 
 
 
-                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" TextAlignment="Center" FontSize="21" Foreground="Lime"  FontFamily="Lucida Console" Height="auto" Margin="0,43.5,0,0"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Clic "/><Run Text="p"/><Run Text="rimario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Clic secundario"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick izquierdo"/><LineBreak/><Run Text="Mover cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Apretar joystick izquierdo"/><LineBreak/><Run Text="Clic centra"/><Run Text="l"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Mover joystick derecho vertical u horizontalmente"/><LineBreak/><Run Text="Desplazamiento (Scroll) vertical u horizontal"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo/derecho"/><LineBreak/><Run Text="Reducir/aumentar velocidad del cursor o del desplazamiento"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Gatillo izquierdo + gatillo derecho + botón de inicio (start)"/><LineBreak/><Run Text=" Mostrar/ocultar esta interfaz"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="instrucciones" TextWrapping="Wrap" TextAlignment="Center" FontSize="21" Foreground="Lime"  FontFamily="Lucida Console" Height="auto" Margin="0,43.5,0,0"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Primary click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Secondary click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Left Joystick"/><LineBreak/><Run Text="Move cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Push Left Joystick"/><LineBreak/><Run Text="Mid Click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Right Joystick Horizontally or Vertically"/><LineBreak/><Run Text="Horizontal or Vertical "/><Run Text="Scroll"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Left/Right Trigger"/><LineBreak/><Run Text="Decrease/Increase speed"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Trigger Left + Trigger Right + Start"/><LineBreak/><Run Text="Hide/Show this interface"/><LineBreak/><Run/></TextBlock>
 
 
 
