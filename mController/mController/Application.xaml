@@ -10,7 +10,7 @@
 
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="RoundedButton.xaml"/>
+                <ResourceDictionary Source="CustomButton.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 

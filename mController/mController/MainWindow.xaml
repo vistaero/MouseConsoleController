@@ -1,85 +1,102 @@
-﻿<Window x:Name="MainWindow1" x:Class="MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mController"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" x:Name="MainWindow1" x:Class="MainWindow"
         mc:Ignorable="d"
-        Title="mController" Height="675" Width="1170" WindowStartupLocation="CenterScreen" Icon="icon.ico" ResizeMode="NoResize" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None">
+        Title="mController" 
+        Height="473" 
+        Width="1170" 
+        WindowStartupLocation="CenterScreen" 
+        Icon="icon.ico" 
+        ResizeMode="NoResize" 
+        Background="{x:Null}" 
+        AllowsTransparency="True" 
+        WindowStyle="None">
+
     <Grid>
-        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000">
-            <Rectangle.Stroke>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#33ABF4FF" Offset="0"/>
-                    <GradientStop Color="#334490FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Stroke>
-        </Rectangle>
-        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Height="91" VerticalAlignment="Top" Fill="#F2000000" Margin="210,96,210,0">
-            <Rectangle.Stroke>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#33ABF4FF" Offset="0"/>
-                    <GradientStop Color="#334490FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Stroke>
-        </Rectangle>
-        <Rectangle RadiusX="20" RadiusY="20" StrokeThickness="5" Margin="150,192,150,0" Fill="#F2000000">
-            <Rectangle.Stroke>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#33ABF4FF" Offset="0"/>
-                    <GradientStop Color="#334490FF" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Stroke>
-        </Rectangle>
+        <Rectangle StrokeThickness="1" Height="472" Margin="0 0 0 0" VerticalAlignment="Top" Stroke="#7F0000FF"/>
+        <Rectangle StrokeThickness="1" Height="424" Width="1168" Margin="1,47,1,1" VerticalAlignment="Top" Fill="#CC000000" />
+
+        <Rectangle StrokeThickness="1" Height="1" Width="1168" Margin="0 46 0 0" VerticalAlignment="Top" Stroke="#7F0000FF" />
+        <Rectangle StrokeThickness="1" Height="45" Width="1168" Margin="1 1 1 1" VerticalAlignment="Top" Fill="#E5000000" MouseDown="Rectangle_MouseDown" />
+
+        <StackPanel Orientation="Horizontal" Margin="0 1" VerticalAlignment="Top" HorizontalAlignment="Center" Visibility="Hidden">
+
+
+            <Button x:Name="button_reload" Style="{DynamicResource MinimizeButtonStyle}" Margin="10 0 0 0" Padding="10" Height="45" FontSize="16">
+                <ContentControl>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontFamily="Calibri"><Run Text="⟳"/></TextBlock>
+                    </StackPanel>
+
+                </ContentControl>
+            </Button>
+
+
+            <RadioButton x:Name="controller1rb" VerticalAlignment="Center" Margin="5 0" Padding="2 -6" FontSize="21" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Content="Controller 1"/>
+            <RadioButton x:Name="controller2rb" VerticalAlignment="Center" Margin="5 0" Padding="2 -6" FontSize="21" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Content="Controller 2"/>
+            <RadioButton x:Name="controller3rb" VerticalAlignment="Center" Margin="5 0" Padding="2 -6" FontSize="21" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Content="Controller 3"/>
+            <RadioButton x:Name="controller4rb" VerticalAlignment="Center" Margin="5 0" Padding="2 -6" FontSize="21" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Content="Controller 4"/>
+        </StackPanel>
+
         <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <TextBlock DockPanel.Dock="Left" FontFamily="Calibri" FontSize="21.333" Margin="10 10 0 10" Foreground="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" MouseDown="TextBlock_MouseDown"><Run Text="mController"/></TextBlock>
 
-            <StackPanel DockPanel.Dock="Top" Margin="0, 10, 0, 0" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <Button x:Name="button_close" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="0,0,0,0" Padding="10" Height="45" FontSize="16" Background="Black" BorderBrush="#FFFF4A4A">
+                <Button x:Name="button_close" Style="{DynamicResource CloseButtonStyle}" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0 1 1 1" Padding="10" Height="45" FontSize="16" >
 
                     <ContentControl>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="textClose" FontFamily="Lucida Console" Foreground="Lime">Stop using controller and close</TextBlock>
-                        </StackPanel>
-
-                    </ContentControl>
-
-
-                </Button>
-
-
-
-                <Button x:Name="button_disable" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FFFFD100">
-                    <ContentControl>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="textDisable" FontFamily="Lucida Console" Foreground="Lime">Hide and disable temporarily</TextBlock>
-                        </StackPanel>
-
-                    </ContentControl>
-                </Button>
-
-                <Button x:Name="button_hide" Style="{DynamicResource BaseButtonStyle}" HorizontalAlignment="Left" Margin="10,0,0,0" Padding="10"  Height="45" FontSize="16" Background="Black" BorderBrush="#FF0051FF">
-                    <ContentControl>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="textHide" FontFamily="Lucida Console" Foreground="Lime">Hide and keep using controller</TextBlock>
+                            <TextBlock x:Name="textClose" Padding="0 4" FontFamily="Calibri"><Run Text="X"/></TextBlock>
                         </StackPanel>
 
                     </ContentControl>
 
                 </Button>
 
-            </StackPanel>
+                <Button x:Name="button_hide" Style="{DynamicResource MinimizeButtonStyle}" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0 1" Padding="10" FontSize="16">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="textHide" FontFamily="Calibri"><Run Text="_"/></TextBlock>
+                        </StackPanel>
 
-            <StackPanel DockPanel.Dock="Top" Margin="0, 26, 0, 0" Height="70" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-                <RadioButton x:Name="controller1rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 1</RadioButton>
-                <RadioButton x:Name="controller2rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 2</RadioButton>
-                <RadioButton x:Name="controller3rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 3</RadioButton>
-                <RadioButton x:Name="controller4rb" VerticalAlignment="Center" Margin="5" FontSize="21" HorizontalAlignment="Center" Foreground="Lime" FontFamily="Lucida Console">Controller 4</RadioButton>
-            </StackPanel>
+                    </ContentControl>
+
+                </Button>
+
+                <ToggleButton x:Name="button_disable" Style="{DynamicResource DisableButtonStyle}" DockPanel.Dock="Right" Margin="1" HorizontalAlignment="Center" Padding="10" Height="45" FontSize="16">
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="textDisable" FontFamily="Calibri"><Run Text="Disable Temporarily"/></TextBlock>
+                        </StackPanel>
+
+                    </ContentControl>
+                </ToggleButton>
 
 
+            </DockPanel>
 
-            <TextBlock x:Name="instrucciones" TextWrapping="Wrap" TextAlignment="Center" FontSize="21" Foreground="Lime"  FontFamily="Lucida Console" Height="auto" Margin="0,43.5,0,0"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><Run Text="Primary click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run Text="Secondary click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Left Joystick"/><LineBreak/><Run Text="Move cursor"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Push Left Joystick"/><LineBreak/><Run Text="Mid Click"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Right Joystick Horizontally or Vertically"/><LineBreak/><Run Text="Horizontal or Vertical "/><Run Text="Scroll"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Left/Right Trigger"/><LineBreak/><Run Text="Decrease/Increase speed"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Trigger Left + Trigger Right + Start"/><LineBreak/><Run Text="Hide/Show this interface"/><LineBreak/><Run/></TextBlock>
 
+            <Grid DockPanel.Dock="Bottom">
+                <CheckBox x:Name="startAtStartup" Margin="10,11,1031,10" Content="_Run at startup" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Height="15"/>
+                <TextBlock HorizontalAlignment="Right" Margin="5" Padding="10 5" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TextDecorations="Underline"><Hyperlink NavigateUri="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=33VV9979AHN7C" RequestNavigate="Hyperlink_RequestNavigate"><Run Name="AboutButton" Text="About"/></Hyperlink></TextBlock>
+            </Grid>
+
+
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="instrucciones1" Grid.Column="0" DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Right" FontSize="21" Height="auto" Margin="5 0" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"><Run FontWeight="Bold" Text="A"/><Run Text=" "/><LineBreak/><LineBreak/><Run FontWeight="Bold" Text="B"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Left Joystic"/><Run FontWeight="Bold" Text="k"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Push Left Joystick"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Move Right Joystick Horizontally or Vertically"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Left/Right Trigger"/><LineBreak/><Run/><LineBreak/><Run FontWeight="Bold" Text="Trigger Left + Trigger Right + Start"/></TextBlock>
+                <TextBlock x:Name="instrucciones2" Grid.Column="1" DockPanel.Dock="Bottom" TextWrapping="Wrap" TextAlignment="Left" FontSize="21" Height="auto" Margin="5 0" FontFamily="Calibri" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"><Run Text="Primary click"/><LineBreak/><Run/><LineBreak/><Run Text="Secondary click"/><LineBreak/><Run/><LineBreak/><Run Text="Move cursor"/><LineBreak/><Run/><LineBreak/><Run Text="Mid Click"/><LineBreak/><Run/><LineBreak/><Run Text="Horizontal or Vertical "/><Run Text="Scroll"/><LineBreak/><Run/><LineBreak/><Run Text="Decrease/Increase speed"/><LineBreak/><Run/><LineBreak/><Run Text="Hide/Show this interface"/></TextBlock>
+
+
+            </Grid>
 
 
 

@@ -1,0 +1,14 @@
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\CustomButton.baml
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\MainWindow.g.vb
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\Application.g.vb
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController_MarkupCompile.cache
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController_MarkupCompile.lref
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\Application.baml
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\MainWindow.baml
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.g.resources
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.Resources.resources
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.vbproj.GenerateResource.Cache
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.exe.manifest
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.exe
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.xml
+C:\Users\vista\Documents\Visual Studio 2015\Projects\mController\mController\obj\Release\mController.pdb

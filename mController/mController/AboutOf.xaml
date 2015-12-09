@@ -1,0 +1,41 @@
+﻿<Window x:Class="AboutOf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mController"
+        mc:Ignorable="d" 
+        AllowsTransparency="True" 
+        WindowStyle="None"
+        Title="About mController" Height="400" Width="500" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{x:Null}">
+
+    <Grid>
+
+        <Rectangle StrokeThickness="1" Height="45" Margin="1,1,1,0" VerticalAlignment="Top" Fill="#E5000000" MouseDown="Rectangle_MouseDown" />
+        <Rectangle StrokeThickness="1" Margin="1,47,1,1" Fill="#CC000000" />
+        <Rectangle StrokeThickness="1" Height="auto" Margin="0 0 0 0" Stroke="#7F0000FF"/>
+        <Rectangle StrokeThickness="1" Height="1" Margin="0 46 0 0" VerticalAlignment="Top" Stroke="#7F0000FF" />
+        
+        <DockPanel Name="ContentTittleBar" VerticalAlignment="Top">
+            <TextBlock x:Name="TitleTextBlock" DockPanel.Dock="Left" FontFamily="Calibri" FontSize="21.333" Margin="10 10 0 10" Foreground="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"><Run Text="About mController"/></TextBlock>
+            <StackPanel DockPanel.Dock="Right" Margin="0, 1, 0, 0" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+
+                <Button x:Name="button_close" Style="{DynamicResource CloseButtonStyle}" Margin="0 0 1 0" Padding="10" Height="45" FontSize="16" >
+
+                    <ContentControl>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="textClose" Padding="0 4" FontFamily="Calibri"><Run Text="X"/></TextBlock>
+                        </StackPanel>
+
+                    </ContentControl>
+
+                </Button>
+
+            </StackPanel>
+
+        </DockPanel>
+
+        <TextBlock FontFamily="Calibri" Margin="15 60 15 15" TextWrapping="Wrap" FontSize="16" Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" TextAlignment="Justify"><Run Text="Is not annoying when you are playing at some distance of the TV, with your console controller, and then you need to do something out of the game, and you don't have a wireless mouse or a good place to use it?"/><LineBreak/><Run/><LineBreak/><Run Text="That's the situation in which I have been a lot of times, and that is why I, vistaero, have developed this software. A software easy to use, that justs works well from the very beggining."/><LineBreak/><Run/><LineBreak/><Run Text="I decided to share this"/><Run Text=" software completely free. It "/><Run Text="has"/><Run Text=" never be"/><Run Text="en"/><Run Text=" paid, and will never be. "/><LineBreak/><Run/><LineBreak/><Run Text="B"/><Run Text="ut, if you are enjoying this software, and would like "/><Run Text="it to k"/><Run Text="eep being"/><Run Text=" improved, maybe you would like to make a donation to suppo"/><Run Text="r"/><Run Text="t the developer."/><LineBreak/><LineBreak/><Run Text="Clic"/><Run Text=" "/><Hyperlink NavigateUri="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=33VV9979AHN7C" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="here"/></Hyperlink><Run Text=" "/><Run Text="to donate."/><Run Text=" Thanks!"/></TextBlock>
+
+    </Grid>
+</Window>
