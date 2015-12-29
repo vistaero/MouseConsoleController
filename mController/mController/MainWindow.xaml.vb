@@ -575,7 +575,7 @@ Class MainWindow
                     Select Case bCreate
                         Case True
                             .SetValue(subClave,
-                                      System.Reflection.Assembly.GetExecutingAssembly().Location)
+                                      System.Reflection.Assembly.GetExecutingAssembly().Location & " /minimized")
                         Case False
                             If .GetValue(subClave, "").ToString <> "" Then
                                 .DeleteValue(subClave)
@@ -635,4 +635,5 @@ Class MainWindow
     Private Sub button_reload_Click(sender As Object, e As RoutedEventArgs) Handles button_reload.Click
 
     End Sub
+
 End Class
